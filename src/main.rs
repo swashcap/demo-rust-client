@@ -9,5 +9,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     println!("Response: {}", res.status());
     println!("Headers: {:#?}\n", res.headers());
 
+    std::io::copy(&mut res, &mut std::io::stdout())?;
+
     Ok(())
 }
